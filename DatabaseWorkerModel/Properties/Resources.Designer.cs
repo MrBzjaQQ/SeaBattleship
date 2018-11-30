@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SeaBattleship.Properties {
+namespace DatabaseWorkerModel.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace SeaBattleship.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SeaBattleship.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DatabaseWorkerModel.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,11 +61,11 @@ namespace SeaBattleship.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на http://localhost:8080.
+        ///   Ищет локализованную строку, похожую на Database=SeaBattleshipDatabase.
         /// </summary>
-        internal static string ConnectionPrefix {
+        internal static string DatabaseConnectionString {
             get {
-                return ResourceManager.GetString("ConnectionPrefix", resourceCulture);
+                return ResourceManager.GetString("DatabaseConnectionString", resourceCulture);
             }
         }
     }
