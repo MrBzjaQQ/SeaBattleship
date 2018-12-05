@@ -5,15 +5,15 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommunicationModel.CustomEventArgs
+namespace SeaBattleship.Communication.CustomEventArgs
 {
     //аргументы события при получении HTTP запроса
     public class HttpRequestReceivedEventArgs : EventArgs
     {
-        public HttpListenerResponse Response;
-        public HttpRequestReceivedEventArgs(HttpListenerResponse response)
+        public HttpListenerContext Context;
+        public HttpRequestReceivedEventArgs(HttpListenerContext context)
         {
-            Response = response;
+            Context = context;
         }
     }
 }

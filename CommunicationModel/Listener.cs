@@ -6,9 +6,9 @@ using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using CommunicationModel.CustomEventArgs;
+using SeaBattleship.Communication.CustomEventArgs;
 
-namespace CommunicationModel
+namespace SeaBattleship.Communication
 {
     //класс, который принимает входящие запросы
     public class Listener
@@ -26,8 +26,8 @@ namespace CommunicationModel
                 while (true)
                 {
                     _listener.Start();
-                    HttpListenerContext context = _listener.GetContext();
-                    RequestReceived.Invoke(this, new HttpRequestReceivedEventArgs(context.Response));
+                    HttpListenerContext context = _listener.GetContext(); //для работы с SocketIO использовать RawUrl
+                    RequestReceived.Invoke(this, new HttpRequestReceivedEventArgs(context));
                 }
             });
             _listening.Start();

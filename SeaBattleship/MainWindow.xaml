@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SeaBattleship"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Server" Height="450" Width="385.735">
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
     <Grid>
-        
+        <TextBox HorizontalAlignment="Left" Height="312" Margin="10,29,0,0" TextWrapping="Wrap" Text="{Binding LogText}" VerticalAlignment="Top" Width="357"/>
+        <Button Content="Start" IsEnabled="{Binding StartButtonEnabled}" Command="{Binding StartCommand}" HorizontalAlignment="Left" Margin="37,362,0,0" VerticalAlignment="Top" Width="100" Height="32"/>
+        <Button Content="Stop" IsEnabled="{Binding StopButtonEnabled}" Command="{Binding StopCommand}" HorizontalAlignment="Left" Margin="238,362,0,0" VerticalAlignment="Top" Width="101" Height="32"/>
     </Grid>
 </Window>

@@ -4,9 +4,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DatabaseWorkerModel.BasicTypes;
+using SeaBattleship.DatabaseWorker.BasicTypes;
 
-namespace DatabaseWorkerModel
+namespace SeaBattleship.DatabaseWorker
 {
     public class DatabaseWorkerModel
     {
@@ -51,6 +51,34 @@ namespace DatabaseWorkerModel
             command.ExecuteNonQuery();
         }
 
+        public string CheckLogIn(string eMail, string password)
+        {
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = $"USE [SeaBattleshipDatabase]; SELECT * FROM Player WHERE [E-mail] = \'{eMail}\' AND Password = \'{password}\'";
+            using (var dataReader = command.ExecuteReader())
+            {
+                if (!dataReader.HasRows)
+                    return string.Empty;
+                dataReader.Read();
+                Player player = new Player();
+                player.PlayerID = Int32.Parse(dataReader.GetValue(0).ToString());
+                player.Login = dataReader.GetValue(1).ToString();
+                player.Nickname = dataReader.GetValue(2).ToString();
+                player.FirstName = dataReader.GetValue(3).ToString();
+                player.LastName = dataReader.GetValue(4).ToString();
+                player.E_Mail = dataReader.GetValue(5).ToString();
+                player.Password = dataReader.GetValue(6).ToString();
+                string data = "\"data\": {\n" +
+                    $"\"id\": \"{Guid.NewGuid()}\",\n" +
+                    $"\"login\": \"{player.E_Mail}\",\n" +
+                    $"\"nickname\": \"{player.Nickname}\",\n" +
+                    $"\"firstname\": \"{player.FirstName}\",\n" +
+                    $"\"lastname\": \"{player.LastName}\",\n" +
+                    $"\"token\": \"{Guid.NewGuid()}\"" +
+                    "}\n";
+                return data;
+            }
+        }
         private SqlConnection connection;
     }
 }

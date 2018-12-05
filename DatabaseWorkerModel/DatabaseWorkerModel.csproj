@@ -7,8 +7,8 @@
     <ProjectGuid>{0E77E7F8-E4A8-47DC-AEAD-BBCDCB98AB6F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DatabaseWorkerModel</RootNamespace>
-    <AssemblyName>DatabaseWorkerModel</AssemblyName>
+    <RootNamespace>SeaBattleship.DatabaseWorker</RootNamespace>
+    <AssemblyName>DatabaseWorker</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

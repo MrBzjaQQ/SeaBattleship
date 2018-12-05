@@ -7,8 +7,8 @@
     <ProjectGuid>{E77EDDF1-6A2D-49C4-9308-D83E1DB3E7CC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CommunicationModel</RootNamespace>
-    <AssemblyName>CommunicationModel</AssemblyName>
+    <RootNamespace>SeaBattleship.Communication</RootNamespace>
+    <AssemblyName>Communication</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -127,15 +127,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BasicTypes\RequestType.cs" />
     <Compile Include="CommunicationModel.cs" />
     <Compile Include="CustomEventArgs\HttpRequestReceivedEventArgs.cs" />
+    <Compile Include="CustomEventArgs\HttpResponseCreatedEventArgs.cs" />
     <Compile Include="Listener.cs" />
+    <Compile Include="MessageHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Sender.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -145,6 +149,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DatabaseWorkerModel\DatabaseWorkerModel.csproj">
+      <Project>{0e77e7f8-e4a8-47dc-aead-bbcdcb98ab6f}</Project>
+      <Name>DatabaseWorkerModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CommunicationModel.Properties {
+namespace SeaBattleship.Communication.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace CommunicationModel.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CommunicationModel.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SeaBattleship.Communication.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,7 +61,7 @@ namespace CommunicationModel.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на http://localhost:8080.
+        ///   Ищет локализованную строку, похожую на http://localhost:3000/.
         /// </summary>
         internal static string ConnectionPrefix {
             get {

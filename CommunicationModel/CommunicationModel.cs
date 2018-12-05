@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SeaBattleship.DatabaseWorker;
 
-namespace CommunicationModel
+namespace SeaBattleship.Communication
 {
     //модель должна быть максимально простой.
     //есть слушатель, который получает пакет и через событие возвращает запрос
@@ -12,9 +13,28 @@ namespace CommunicationModel
     //есть отправитель, который выбирает тип ответа и отправляет соответствующий ответ
     public class CommunicationModel
     {
-        public CommunicationModel()
+        public CommunicationModel(DatabaseWorkerModel database)
         {
-
+            databaseWorker = database;
+            listener = new Listener();
+            handler = new MessageHandler(databaseWorker);
+            sender = new Sender();
+            listener.RequestReceived += handler.OnRequestReceived;
+            handler.RequestProcessed += sender.OnRequestProcessed;
         }
+        
+        public void Start()
+        {
+            listener.Start();
+        }
+
+        public void Stop()
+        {
+            listener.Stop();
+        }
+        private Listener listener;
+        private MessageHandler handler;
+        private Sender sender;
+        private DatabaseWorkerModel databaseWorker;
     }
 }
